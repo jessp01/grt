@@ -86,7 +86,7 @@ your template repo.
 
 ### cmd/grt.go
 
-This file serves a double purpose:
+This file serves a dual purpose:
 - It demonstrate the use of the `github.com/urfave/cli` package for processing CLI args (both long and short options are
   supported)
 - It assists in replacing tokens in the `README.tmpl.md` template file to produce a README skeleton for your project.

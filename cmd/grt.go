@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/jessp01/grt"
@@ -66,8 +67,8 @@ COPYRIGHT:
 			Destination: &outputFilePath,
 		},
 		cli.StringFlag{
-			Name:        "new-repo-name, r",
-			Usage:       "Name of the new repo. Will replace references in input file",
+			Name:        "new-repo, r",
+			Usage:       "String representing the new repo (i.e 'github.com/jessp01/grt'). Will replace references in input file",
 			Destination: &newRepo,
 		},
 	}
@@ -78,10 +79,14 @@ func main() {
 	populateAppMetadata(app)
 
 	app.Action = func(c *cli.Context) error {
-		log.SetFlags(log.LstdFlags | log.Lshortfile)
+		// log.SetFlags(log.LstdFlags | log.Lshortfile)
 		if inputFilePath == "" {
 			cli.ShowAppHelp(c)
 			os.Exit(1)
+		}
+
+		if strings.HasPrefix(newRepo, "http") {
+			log.Fatal("The new repo should be provided in the form of 'GIT-host/username/repo-name' without the schema.\n(i.e: 'github.com/jessp01/grt')")
 		}
 
 		grt.ReplaceTokens(inputFilePath, outputFilePath, repoHost, repoOrg, repoName, newRepo)
