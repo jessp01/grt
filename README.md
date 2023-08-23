@@ -129,10 +129,10 @@ Contributions are, of course, welcome. Please submit a pull request.
 
 ## License
 
-Code is under AGPLv3 License.
+Code is under MIT License.
 
 [license]: ./LICENSE
-[badge-license]: https://img.shields.io/github/license/jessp01/grt.svg
+[badge-license]: https://img.shields.io/github/license/jessp01/grt.svg?v=0.21.0
 [go-docs-badge]: https://godoc.org/github.com/jessp01/grt?status.svg
 [go-docs]: https://godoc.org/github.com/jessp01/grt
 [go-report-card-badge]: https://goreportcard.com/badge/github.com/jessp01/grt?v=0.21.0
