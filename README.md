@@ -135,7 +135,7 @@ Code is under AGPLv3 License.
 [badge-license]: https://img.shields.io/github/license/jessp01/grt.svg
 [go-docs-badge]: https://godoc.org/github.com/jessp01/grt?status.svg
 [go-docs]: https://godoc.org/github.com/jessp01/grt
-[go-report-card-badge]: https://goreportcard.com/badge/github.com/jessp01/grt
+[go-report-card-badge]: https://goreportcard.com/badge/github.com/jessp01/grt?v=0.21.0
 [go-report-card]: https://goreportcard.com/report/github.com/jessp01/grt
 [badge-build]: https://github.com/jessp01/grt/actions/workflows/go.yml/badge.svg
 [build]: https://github.com/jessp01/grt/actions/workflows/go.yml
