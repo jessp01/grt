@@ -17,7 +17,7 @@ By using it as a template when creating new projects, you will gain:
     * There are no inefficient assignments
 - GH actions CI configuration for:
     * Testing code pushes and pull requests (using the same tools as above)
-    * Releasing assets with [GOreleaser](https://goreleaser.com)
+    * Releasing assets with [GoReleaser](https://goreleaser.com)
 - A template for CLI GO applications (usage, option processing, etc)
 - A README template with links and badges for: 
     * CI
@@ -27,7 +27,7 @@ By using it as a template when creating new projects, you will gain:
 
 ## Contents
 - [.pre-commit-config.yaml](.pre-commit-config.yaml): a set of pre-commit hooks relevant to GO code
-- [.goreleaser.yaml](.goreleaser.yaml): [goreleaser](https://goreleaser.com/quick-start) configuration file
+- [.goreleaser.yaml](.goreleaser.yaml): [GoReleaser](https://goreleaser.com/quick-start) configuration file
 - [.github/workflows/go.yml](.github/workflows/go.yml): GH action for post push and pull request testing
 - [.github/workflows/release.yml](.github/workflows/release.yml): GH action to trigger upon tag creation
 
@@ -121,8 +121,7 @@ With GoReleaser, you can:
 This repo includes a [basic GoReleaser config](.goreleaser.yaml) that will produce binaries for Linux, Darwin (what
 people refer to as MacOS and shouldn't), FreeBSD and NetBSD. You can tweak it as you please but one necessary change is
 in [line 21](https://github.com/jessp01/grt/blob/master/.goreleaser.yaml#L21) where `main` should point to your entry
-file.
-It also includes [.github/workflows/release.yml](.github/workflows/release.yml) which is a GH action to trigger upon tag creation. This file will work out of the box.
+file. It also includes [.github/workflows/release.yml](.github/workflows/release.yml) which is a GH action to trigger upon tag creation. This file will work out of the box.
 
 [license]: ./LICENSE
 [badge-license]: https://img.shields.io/github/license/jessp01/grt.svg
