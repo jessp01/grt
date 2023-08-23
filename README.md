@@ -25,7 +25,7 @@ By using it as a template when creating new projects, you will gain:
     * GO docs
     * GO report card
 
-## Contents
+## Configuration files
 - [.pre-commit-config.yaml](.pre-commit-config.yaml): a set of pre-commit hooks relevant to GO code
 - [.goreleaser.yaml](.goreleaser.yaml): [GoReleaser](https://goreleaser.com/quick-start) configuration file
 - [.github/workflows/go.yml](.github/workflows/go.yml): GH action for post push and pull request testing
@@ -121,13 +121,13 @@ With GoReleaser, you can:
 This repo includes a [basic GoReleaser config](.goreleaser.yaml) that will produce binaries for Linux, Darwin (what
 people refer to as MacOS and shouldn't), FreeBSD and NetBSD. You can tweak it as you please but one necessary change is
 in [line 21](https://github.com/jessp01/grt/blob/master/.goreleaser.yaml#L21) where `main` should point to your entry
-file. Also included, is [.github/workflows/release.yml](.github/workflows/release.yml), a GH action to trigger upon tag creation. This file will work out of the box.
+file. Also included, is [.github/workflows/release.yml](.github/workflows/release.yml), a GH action to trigger upon tag creation. This file will work out of the box but of course, you may edit it to your liking.
 
-### Contributing
+## Contributing
 
 Contributions are, of course, welcome. Please submit a pull request.
 
-### License
+## License
 
 Code is under AGPLv3 License.
 
