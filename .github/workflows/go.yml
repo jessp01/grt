@@ -26,6 +26,7 @@ jobs:
     - name: Test
       run: |
         set -e
+        sudo apt-get -qq update && sudo apt-get install -y shellcheck
         go install github.com/go-critic/go-critic/cmd/gocritic@latest
         go install golang.org/x/tools/cmd/goimports@latest
         go install golang.org/x/lint/golint@latest
@@ -34,6 +35,3 @@ jobs:
         pre-commit install  
         pre-commit run --all-files
         go test -v
-
-    #- name: Test
-    #run: go test -v 
