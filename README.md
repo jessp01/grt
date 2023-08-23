@@ -20,17 +20,50 @@ This repo aims to save some boostrapping time when creating a new GO repo.
 - Under `https://github.com/YOUR_ORG/grt/settings`, make sure `Template repository` is checked
 - When creating a new GO repo, select `grt` as the `Repository template`
 - Clone the new repo
-- Run `go run cmd/grt.go -i README.tmpl.md -o README.md -r github.com/YOUR_ORG/YOUR_REPO_NAME`
-- Edit README.md and fill in the different sections
 - Set the desired LICENSE (default is AGPLv3)
 
 ### pre-commit hooks
 
+Install the needed GO packages:
+```sh
+go install github.com/go-critic/go-critic/cmd/gocritic@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/lint/golint@latest
+go install github.com/gordonklaus/ineffassign@latest
+```
+
+Install the `pre-commit` util:
+```sh
+pip install pre-commit
+```
+
+Generate `.git/hooks/pre-commit`:
+```sh
+pre-commit install
+```
+
+pre-commit run --all-files
+
+## Demo files
+
+The below files are mostly included for demonstration purposes. They should be edited to reflect your project.
+
 ### grt.go
+
+Includes only one function: `ReplaceTokens()` which replaces tokens in input file and outputs to new file. This is invoked
+from `cmd/grt.go` and `grt_test.go`. Once you've gone through the basic boostrapping, this file should be removed from
+your new repo. 
+
+
+### cmd/grt.go
+
+- Run `go run cmd/grt.go -i README.tmpl.md -o README.md -r github.com/YOUR_ORG/YOUR_REPO_NAME`
+- Edit README.md and fill in the different sections
 
 ### grt_test.go
 
-### cmd/grt.go
+Included to illustrate the writing of unit tests which can be called by invoking `go test -v`. This contents of this
+file should be completely replaced to reflect tests for your newly created repo.
 
 ### Goreleaser
 
