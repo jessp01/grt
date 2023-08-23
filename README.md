@@ -7,7 +7,23 @@
 
 ## Motivation
 
-This repo aims to save some boostrapping time when creating a new GO repo.
+This repo aims to save some bootstrapping time when creating a new GO repo.
+By using it as a template when creating new projects, you will gain:
+
+- A set of pre-commit hooks to test that:
+    * Your GO code is correctly formatted (using `gofmt`)
+    * Your package imports adhere to GO standards
+    * There are no linting issues
+    * There are no inefficient assignments
+- GH actions CI configuration for:
+    * Testing code pushes and pull requests (using the same tools as above)
+    * Releasing assets with [GOreleaser](https://goreleaser.com)
+- A template for CLI GO applications (usage, option processing, etc)
+- A README template with links and badges for: 
+    * CI
+    * License
+    * GO docs
+    * GO report card
 
 ## Contents
 - [.pre-commit-config.yaml](.pre-commit-config.yaml): a set of pre-commit hooks relevant to GO code
@@ -42,7 +58,21 @@ Generate `.git/hooks/pre-commit`:
 pre-commit install
 ```
 
+Following that, these tests will run every time you invoke `git commit`:
+```sh
+go fmt...................................................................Passed
+go imports...............................................................Passed
+go vet...................................................................Passed
+go lint..................................................................Passed
+go-critic................................................................Passed
+shellcheck...............................................................Passed
+```
+
+To manually run all tests on all repo files, invoke:
+
+```sh
 pre-commit run --all-files
+```
 
 ## Demo files
 
@@ -51,21 +81,48 @@ The below files are mostly included for demonstration purposes. They should be e
 ### grt.go
 
 Includes only one function: `ReplaceTokens()` which replaces tokens in input file and outputs to new file. This is invoked
-from `cmd/grt.go` and `grt_test.go`. Once you've gone through the basic boostrapping, this file should be removed from
-your new repo. 
-
+from `cmd/grt.go` and `grt_test.go`. Once you've gone through the basic bootstrapping, this file should be removed from
+your template repo. 
 
 ### cmd/grt.go
 
+This file serves a double purpose:
+- It demonstrate the use of the `github.com/urfave/cli` package for processing CLI args (both long and short options are
+  supported)
+- It assists in replacing tokens in the `README.tmpl.md` template file to produce a README skeleton for your project.
+
+After you're done viewing this README, take the below actions:
+ 
 - Run `go run cmd/grt.go -i README.tmpl.md -o README.md -r github.com/YOUR_ORG/YOUR_REPO_NAME`
 - Edit README.md and fill in the different sections
+
+Since this file includes metadata that is likely to be common to all your projects (author name, email and organisation
+name, etc), you'll probably want to edit it on the repo you've designated as your template (the clone of the `grt`
+repo).
 
 ### grt_test.go
 
 Included to illustrate the writing of unit tests which can be called by invoking `go test -v`. This contents of this
 file should be completely replaced to reflect tests for your newly created repo.
 
-### Goreleaser
+### GoReleaser
+
+With GoReleaser, you can:
+
+- Cross-compile your Go project
+- Release to GitHub, GitLab and Gitea
+- Create nightly builds
+- Create Docker images and manifests
+- Create Linux packages and Homebrew taps
+- Sign artifacts, checksums and container images
+- Announce new releases on Twitter, Slack, Discord and others
+- Generate SBOMs (Software Bill of Materials) for binaries and container images
+
+This repo includes a [basic GoReleaser config](.goreleaser.yaml) that will produce binaries for Linux, Darwin (what
+people refer to as MacOS and shouldn't), FreeBSD and NetBSD. You can tweak it as you please but one necessary change is
+in [line 21](https://github.com/jessp01/grt/blob/master/.goreleaser.yaml#L21) where `main` should point to your entry
+file.
+It also includes [.github/workflows/release.yml](.github/workflows/release.yml) which is a GH action to trigger upon tag creation. This file will work out of the box.
 
 [license]: ./LICENSE
 [badge-license]: https://img.shields.io/github/license/jessp01/grt.svg
