@@ -36,7 +36,7 @@ By using it as a template when creating new projects, you will gain:
 - Under `https://github.com/YOUR_ORG/grt/settings`, make sure `Template repository` is checked
 - When creating a new GO repo, select `grt` as the `Repository template`
 - Clone the new repo
-- Set the desired LICENSE (default is AGPLv3)
+- Set the desired LICENSE (default is MIT)
 
 ### pre-commit hooks
 
