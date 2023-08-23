@@ -10,10 +10,11 @@ import (
 )
 
 const (
-    repoHost = "@REPO_HOST@"
-    repoOrg =  "@REPO_ORG@"
-    repoName = "@REPO_NAME@"
+	repoHost = "@REPO_HOST@"
+	repoOrg  = "@REPO_ORG@"
+	repoName = "@REPO_NAME@"
 )
+
 var inputFilePath string
 var outputFilePath string
 var newRepo string
