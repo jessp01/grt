@@ -74,6 +74,25 @@ To manually run all tests on all repo files, invoke:
 pre-commit run --all-files
 ```
 
+## GoReleaser
+
+With GoReleaser, you can:
+
+- Cross-compile your Go project
+- Release to GitHub, GitLab and Gitea
+- Create nightly builds
+- Create Docker images and manifests
+- Create Linux packages and Homebrew taps
+- Sign artifacts, checksums and container images
+- Announce new releases on Twitter, Slack, Discord and others
+- Generate SBOMs (Software Bill of Materials) for binaries and container images
+
+This repo includes a [basic GoReleaser config](.goreleaser.yaml) that will produce binaries for Linux, Darwin (what
+people refer to as MacOS and shouldn't), FreeBSD and NetBSD. You can tweak it as you please but one necessary change is
+in [line 21](https://github.com/jessp01/grt/blob/master/.goreleaser.yaml#L21) where `main` should point to your entry
+file. Also included, is [.github/workflows/release.yml](.github/workflows/release.yml), a GH action to trigger upon tag creation. This file will work out of the box but of course, you may edit it to your liking.
+
+
 ## Demo files
 
 The below files are mostly included for demonstration purposes. They should be edited to reflect your project.
@@ -104,24 +123,6 @@ repo).
 
 Included to illustrate the writing of unit tests which can be called by invoking `go test -v`. This contents of this
 file should be completely replaced to reflect tests for your newly created repo.
-
-### GoReleaser
-
-With GoReleaser, you can:
-
-- Cross-compile your Go project
-- Release to GitHub, GitLab and Gitea
-- Create nightly builds
-- Create Docker images and manifests
-- Create Linux packages and Homebrew taps
-- Sign artifacts, checksums and container images
-- Announce new releases on Twitter, Slack, Discord and others
-- Generate SBOMs (Software Bill of Materials) for binaries and container images
-
-This repo includes a [basic GoReleaser config](.goreleaser.yaml) that will produce binaries for Linux, Darwin (what
-people refer to as MacOS and shouldn't), FreeBSD and NetBSD. You can tweak it as you please but one necessary change is
-in [line 21](https://github.com/jessp01/grt/blob/master/.goreleaser.yaml#L21) where `main` should point to your entry
-file. Also included, is [.github/workflows/release.yml](.github/workflows/release.yml), a GH action to trigger upon tag creation. This file will work out of the box but of course, you may edit it to your liking.
 
 ## Contributing
 
